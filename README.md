@@ -60,6 +60,7 @@ Você pode visualizar o layout do projeto no formato através [desse link](https
 ### Começar o frontend
  
  1. Mova para o directorio do frontend: ```cd frontend```
+ 2. Run ```npm install```
  2. Run ```npm start```
  
 ### Começar o mobile
