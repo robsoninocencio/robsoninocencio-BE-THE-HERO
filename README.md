@@ -41,14 +41,14 @@ Você pode visualizar o layout do projeto no formato através [desse link](https
 
 ## Começando
 
- 1. Clone esse repositorio ```git clone https://github.com/olucasokarin/be-the-hero.git```
- 2. Mova para a directorio: ```cd be-the-hero```
- 3. Run ```npm install``` para instalar as dependencias
+ 1. Clone esse repositorio ```git clone https://github.com/robsoninocencio/BE-THE-HERO.git```
+ 2. Mova para o directorio: ```cd be-the-hero```
  
 ### Começar o servidor
  
  1. Mova para o directorio do backend: ```cd backend```
- 2. Run ```npm start```
+ 2. Run ```npm install nodemon -D```
+ 3. Run ```npm start```
  
  Caso dê algum erro no banco de dados
  
