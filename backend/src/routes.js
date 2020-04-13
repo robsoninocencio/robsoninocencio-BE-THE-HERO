@@ -1,5 +1,5 @@
 const express = require('express');
-const { celebrate, Segments, Joi} = require('celebrate');
+const { celebrate, Segments, Joi } = require('celebrate');
 
 const OngController = require('./controllers/OngController')
 const IncidentController = require('./controllers/IncidentController')
@@ -12,15 +12,26 @@ routes.post('/session', SessionController.create)
 
 routes.get('/ongs', OngController.list);
 
-routes.post('/ongs', celebrate({
-    [Segments.BODY]: Joi.object().keys({
-        name: Joi.string().required(),
-        email: Joi.string().required().email(),
-        whatsapp: Joi.string().required().min(10).max(11).default(10),
-        city: Joi.string().required(),
-        uf: Joi.string().required().length(2),
+routes.post('/ongs'
+    , celebrate({
+        [Segments.BODY]: Joi.object()
+            .keys({
+                name: Joi.string().required(),
+                email: Joi.string().required().email(),
+                whatsapp: Joi.string().required().min(10).max(11).default(10),
+                city: Joi.string().required(),
+                uf: Joi.string().required().length(2),
+            })
     })
-}),  OngController.create);
+    , OngController.create);
+
+routes.post('/ongs/recuperarID', celebrate({
+    [Segments.BODY]: Joi.object().keys({
+        email: Joi.string().required().email(),
+    })
+}), OngController.recuperarID);
+
+routes.post('/ongs/listEmail', OngController.listEmail);
 
 routes.get('/incidents', celebrate({
     [Segments.QUERY]: Joi.object().keys({

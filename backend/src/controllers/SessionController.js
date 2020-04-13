@@ -9,10 +9,9 @@ module.exports = {
         .select('name')
         .first();
 
-        if(!ong)
+        if(!ong) {
             return response.status(400).json({error: 'nao encontrado com esse id'});
-
+        }
         return response.json(ong);    
-
     }
 }

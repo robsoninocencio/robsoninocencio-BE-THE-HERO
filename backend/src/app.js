@@ -10,5 +10,4 @@ app.use(express.json()); //mostrar que receberemos json na aplicação
 app.use(routes);
 app.use(errors()); //mudança dos erros padrão para erros html
 
-
 module.exports = app;

@@ -22,17 +22,19 @@ export default function Incidents() {
     }
 
     async function loadIncidents(){
-        if(loading) return;
+        if (loading) {
+            return;
+        }
 
-        if(total > 0 && incidents.length == total) return;
-
+        if (total > 0 && incidents.length === total) {
+            return;
+        }
         setLoading(true);
 
-        // const response = await api.get('incidents');
-        // setIncidents(response.data);
+        const response = await api.get('incidents', {
+            params: {page}
+          });
 
-        const response = await api.get('incidents', {params: { page }})
-        // .then(response => setIncidents([...incidents, ...response.data]));
         setIncidents([...incidents, ...response.data]);
         setTotal(response.headers['x-total-count']);
         setPage(page+1);
@@ -76,7 +78,6 @@ export default function Incidents() {
                         <Text style={styles.incidentProperty}>ONG:</Text>
                         <Text style={styles.incidentValue}>{incident.name} de {incident.city}/{incident.uf}</Text>
 
-
                         <Text style={styles.incidentProperty}>CASO:</Text>
                         <Text style={styles.incidentValue}>{incident.title}</Text>
 
@@ -86,7 +87,12 @@ export default function Incidents() {
                             .format(incident.value)}
                         </Text>
 
-                        <TouchableOpacity style={styles.detailsButton} onPress={() =>navigationToDetail(incident)}>
+                        
+                        
+                        <TouchableOpacity 
+                            style={styles.detailsButton} 
+                            onPress={() =>navigationToDetail(incident)}>
+                            
                             <Text style={styles.detailsButtonText}>Ver mais detalhes</Text>
                             <Feather name="arrow-right" size={16} color="#e02041" />
                         </TouchableOpacity>

@@ -44,8 +44,14 @@ export default function Logon() {
 
                     <Link className="back-link" to="/register">
                         <FiLogIn size={16} color="#e02041"/>
-                        Não tenho cadastro
+                        Cadastre sua Instituição
                     </Link>
+
+                    <Link className="back-link" to="/ongs/recuperarID">
+                        <FiLogIn size={16} color="#e02041"/>
+                        Recupere seu ID
+                    </Link>
+
                 </form>
             </section>
 

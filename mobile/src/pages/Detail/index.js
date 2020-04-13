@@ -28,6 +28,8 @@ export default function Detail() {
     }
 
     function sendWpp() {
+        incident.whatsapp = 5547988748655;
+        console.log(incident.whatsapp);
         Linking.openURL(`whatsapp://send?phone=${incident.whatsapp}&text=${message}`);
     }
 
